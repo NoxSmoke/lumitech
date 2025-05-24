@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://tuhxes1h05g1"]
+
+[ext_resource type="Texture2D" uid="uid://duobygt1my26v" path="res://kenney_new-platformer-pack-1.0/Sprites/Backgrounds/Default/background_clouds.png" id="1_20wim"]
+[ext_resource type="Script" path="res://title_screen.gd" id="1_fojdh"]
+[ext_resource type="FontFile" uid="uid://b22wpkf2pqn8c" path="res://kenney_new-platformer-pack-1.0/Sprites/Tiles/Default/8-BIT WONDER.TTF" id="2_or1uq"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fojdh")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_20wim")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -168.0
+offset_top = -52.5
+offset_right = 168.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_or1uq")
+theme_override_font_sizes/font_size = 42
+text = "LumiTech"
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_hover_pressed_color = Color(0.396081, 0.509287, 0.177052, 1)
+theme_override_colors/icon_normal_color = Color(0, 1, 1, 0.772549)
+theme_override_colors/icon_focus_color = Color(0, 1, 1, 0.572549)
+theme_override_fonts/font = ExtResource("2_or1uq")
+text = "Start Game"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_or1uq")
+text = "Exit Game"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_pressed"]

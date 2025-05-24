@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://o5vncuvrdx1"]
+
+[ext_resource type="Script" path="res://gem.gd" id="1_0my2i"]
+[ext_resource type="Texture2D" uid="uid://drgl22plp5lwe" path="res://kenney_new-platformer-pack-1.0/Sprites/Tiles/Default/gem_green.png" id="2_v1urm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_f8ble"]
+radius = 19.2354
+
+[node name="Collectible" type="Area2D" groups=["Collectibles"]]
+script = ExtResource("1_0my2i")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_v1urm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_f8ble")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
